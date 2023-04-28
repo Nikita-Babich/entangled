@@ -17,7 +17,7 @@ AA, A...A - Any string which has the first and last letters the same is entangle
 
 #Non-trivial cases:
 ABAB - We can imagine this as two physical links being connected
-
+```
 ---
 | |
 ABAB
@@ -62,7 +62,7 @@ A...C.......A..C.......
 	|		   |		
 	------------
 	The left part of new DD should hook between right pair A and C. A DD link with more left left end -could have generated instead of CC-.
-	
+```	
 	
 	
 In this case we have continue linking. New link should be allowed to have left end anywhere before the recent C.
