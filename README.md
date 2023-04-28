@@ -120,3 +120,12 @@ But in the first idea there is always a left part.
 C*BC****B* [5,8,10,10]
 C*BC****B* [5,8,10,10] -> C*BC****B* [5,8,10,10] we don't need a link between 2 and 5-8. It could have generated instead of BB.
 ```
+
+```mermaid
+flowchart LR
+
+A[Hard] -->|Text| B(Round)
+B --> C{Decision}
+C -->|One| D[Result 1]
+C -->|Two| E[Result 2]
+```
