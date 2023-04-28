@@ -29,37 +29,37 @@ A.....B...A....B Only the relative position of repeated letters matter, the spac
 ---------   ---------
 |       |   |       |
 A...B...A...C...B...C
-    |			|
+    |           |
     -------------
 Chain is always entangled, so we can generate a chain, and then fill the spaces with random letters. Trivial cases are chains of length 1.
 
 -------------
-|			|
+|           |
 A...B...C...A...B...C 
-		|			|
+        |           |
 		-------------
 In this case we don't have to look at BB link, as the whole string is already connected by AA and CC.
 
 	
 -------------
-|			|
+|           |
 A...C...B...A...B...C
-	|				|
+    |               |
 	-----------------
 In this case we don't have to look at BB link, as the whole string is already connected by AA and CC.
 
 
 -------------
-|			|
+|           |
 A...C...B...AC....... 
-	|		 |		
+    |        |		
 	----------
 This case is not self sufficient. The next link will make CC abundant. So the right part of CC should not touch the rightmost already written letter.
 
 -------------
-|			|
+|           |
 A...C.......A..C....... 
-	|		   |		
+    |          |		
 	------------
 	The left part of new DD should hook between right pair A and C. A DD link with more left left end -could have generated instead of CC-.
 ```	
