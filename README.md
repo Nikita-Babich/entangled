@@ -4,7 +4,7 @@ The function has to fill the array with a random entangled word made of the firs
 
 # Entanglement definition
 The string is entangled if it is impossible to split it into 2 substrings so they contain non-intersecting sets of letters.
-
+```
 ##Example: 
 1) ABCDA
 A-BCDA; AB-CDA; ABC-DA; ABCD-A - both parts contain A no matter the division position.
@@ -17,7 +17,7 @@ AA, A...A - Any string which has the first and last letters the same is entangle
 
 #Non-trivial cases:
 ABAB - We can imagine this as two physical links being connected
-```
+
 ---
 | |
 ABAB
@@ -62,7 +62,7 @@ A...C.......A..C.......
     |          |		
 	------------
 	The left part of new DD should hook between right pair A and C. A DD link with more left left end -could have generated instead of CC-.
-```	
+
 	
 	
 In this case we have continue linking. New link should be allowed to have left end anywhere before the recent C.
@@ -119,7 +119,4 @@ But in the first idea there is always a left part.
 
 C*BC****B* [5,8,10,10]
 C*BC****B* [5,8,10,10] -> C*BC****B* [5,8,10,10] we don't need a link between 2 and 5-8. It could have generated instead of BB.
-
-
-
-
+```
