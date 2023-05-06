@@ -2,7 +2,7 @@
 //#include <math.h>
 #include <string.h>
 #include <stdlib.h>
-//#include <time.h>
+#include <time.h>
 
 #define nl printf("\n")
 
@@ -30,17 +30,19 @@ void create_link( char* w, char letter, int* free_indexes, int* rightmost, int* 
 	*rightsecond = *rightmost;
 	*rightmost = right;
 	
+	print_string(w, 10);
+	
 	//redefine free indexes
-	free_indexes[0] = rightsecond+1;
-	free_indexes[1] = rightmost-1;
-	if(free_indexes[3]-rightmost < 3){
+	free_indexes[0] = *rightsecond+1;
+	free_indexes[1] = *rightmost-1;
+	if(free_indexes[3]-*rightmost < 2){
 		free_indexes[2] = free_indexes[3];
 	} else {
-		free_indexes[2] = rightmost + 2;
+		free_indexes[2] = *rightmost + 2;
 	}
 }
 
-void clean_string(char* w, int l){ //finished
+void clean_string(char* w, int l){
 	for(int i=0; i<=l; i++){
 		w[i] = '*';
 	}
@@ -48,11 +50,13 @@ void clean_string(char* w, int l){ //finished
 
 
 void nahodne_prepletene_slovo(char* w, int l, int n){
+	srand(time(NULL));
+	clean_string(w, l);
 	int free[4] = {0,0,0+2,l-1};
 	int rightmost = 0;
 	int rightsecond = 0;
 	
-	while(w[l]=='*'){
+	while(w[l-1]=='*'){
 		create_link(w, random_letter(n), free, &rightmost, &rightsecond);
 	}
 	
@@ -65,7 +69,8 @@ void nahodne_prepletene_slovo(char* w, int l, int n){
 
 int main(){
 	char string1[10]={30,31,32,33,34,35,36,37,38,39};
-	clean_string(string1, 10);
+
+	nahodne_prepletene_slovo(string1, 10, 10);
 	
 	print_string(string1, 10);
 	
