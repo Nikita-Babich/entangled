@@ -31,11 +31,12 @@ void create_link( char* w, char letter, int* free_indexes, int* rightmost, int* 
 	*rightmost = right;
 	
 	//redefine free indexes
-	free_indexes[0]++;
-	free_indexes[2] = rightmost+2;
-	
+	free_indexes[0] = rightsecond+1;
+	free_indexes[1] = rightmost-1;
 	if(free_indexes[3]-rightmost < 3){
-		
+		free_indexes[2] = free_indexes[3];
+	} else {
+		free_indexes[2] = rightmost + 2;
 	}
 }
 
@@ -52,7 +53,7 @@ void nahodne_prepletene_slovo(char* w, int l, int n){
 	int rightsecond = 0;
 	
 	while(w[l]=='*'){
-		create_link(w, random_letter(n), free, &rightmost, &rightsecond)
+		create_link(w, random_letter(n), free, &rightmost, &rightsecond);
 	}
 	
 	for(int i=0; i<=l; i++){
