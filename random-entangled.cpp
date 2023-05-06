@@ -50,20 +50,26 @@ void clean_string(char* w, int l){
 
 
 void nahodne_prepletene_slovo(char* w, int l, int n){
+	if(l<1 or n<1){ printf("l or n is less than 1"); return; }
+	
 	clean_string(w, l);
+	if(l>=3){
+		int free[4] = {0,0,0+2,l-1};
+		int rightmost = 0;
+		int rightsecond = 0;
 	
-	int free[4] = {0,0,0+2,l-1};
-	int rightmost = 0;
-	int rightsecond = 0;
-	
-	while(w[l-1]=='*'){
-		create_link(w, l, random_letter(n), free, &rightmost, &rightsecond);
-	}
-	
-	for(int i=0; i<l; i++){
-		if(w[i] == '*'){
-			w[i] = random_letter(n);
+		while(w[l-1]=='*'){
+			create_link(w, l, random_letter(n), free, &rightmost, &rightsecond);
 		}
+	
+		for(int i=0; i<l; i++){
+			if(w[i] == '*'){
+				w[i] = random_letter(n);
+			}
+		}
+	}else{ //trivial cases
+		int filler = random_letter(n);
+		for(int i=0; i<l; i++){ w[i] = filler; }
 	}
 	
 	nl;
@@ -76,12 +82,15 @@ void nahodne_prepletene_slovo(char* w, int l, int n){
 int main(){
 	srand(time(NULL));
 	
-	for(int i = 0; i<50; i++){
-		int length = rand()%30+3; //Minimum size for a link is currently 3.
+	//testing at 10 random combinations of l and n
+	for(int i = 0; i<10; i++){
+		int length = rand()%30+1; //Minimum size for a string is 1.
 		int n = rand()%26+1;
 		printf("Test %d; \t Length %d; \t Alphabet size %d", i,length, n);
 		char* string1 = (char*) malloc(sizeof(char)*(length));
+		
 		nahodne_prepletene_slovo(string1, length, n);
+		
 		free(string1);
 	}
 
