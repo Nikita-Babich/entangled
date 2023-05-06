@@ -6,13 +6,7 @@
 
 #define nl printf("\n")
 
-//TODO
-//Define the global array
-//Define the function 
-//Function to print an array
-//Cycle in main to test on random inputs
 
-//Remake README to allow my ascii schemes
 
 char random_letter(int n){
 	return (char)(rand()%n+65)
@@ -30,8 +24,10 @@ void create_link(char letter, int free_indexes[4]){
 	
 }
 
-void clean_string(char* w){
-	
+void clean_string(char* w, int l){
+	for(int i=0, i<=l, i++){
+		
+	}
 }
 
 
