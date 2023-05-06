@@ -22,10 +22,19 @@ void print_string( char* ptr, int L ){ //works
 	nl;
 }
 
-void create_link( char* w, char letter, int free_indexes[4] ){
-	if( free_indexes[0] == free_indexes[1] ){
-		w[free_indexes[0]] = letter;
-	} else {
+void create_link( char* w, char letter, int* free_indexes, int* rightmost, int* rightsecond ){
+	int left = random_between(free_indexes[0], free_indexes[1]);
+	int right = random_between(free_indexes[2], free_indexes[3]);
+	w[left] = letter;
+	w[right] = letter;
+	*rightsecond = *rightmost;
+	*rightmost = right;
+	
+	//redefine free indexes
+	free_indexes[0]++;
+	free_indexes[2] = rightmost+2;
+	
+	if(free_indexes[3]-rightmost < 3){
 		
 	}
 }
@@ -39,12 +48,18 @@ void clean_string(char* w, int l){ //finished
 
 void nahodne_prepletene_slovo(char* w, int l, int n){
 	int free[4] = {0,0,0+2,l-1};
-	//first link
-	w[0] = random_letter(n);
+	int rightmost = 0;
+	int rightsecond = 0;
 	
-	//while(w[l]=='*'){
-		//add link create_link(w, random_letter(n), free)
-	//}
+	while(w[l]=='*'){
+		create_link(w, random_letter(n), free, &rightmost, &rightsecond)
+	}
+	
+	for(int i=0; i<=l; i++){
+		if(w[i] == '*'){
+			w[i] = random_letter(n);
+		}
+	}
 }
 
 int main(){
