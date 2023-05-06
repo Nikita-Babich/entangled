@@ -6,13 +6,15 @@
 
 #define nl printf("\n")
 
-
-
-char random_letter(int n){
-	return (char)(rand()%n+65);
+char random_letter( int n ){
+	return (char)(rand() % n + 65);
 }
 
-void print_string(char* ptr, int L){ //works
+int random_between(int a, int b){
+	return (a + rand() % (b-a+1) );
+}
+
+void print_string( char* ptr, int L ){ //works
 	nl;
 	for(int i=0; i < L; i++){
 		printf("%c", ptr[i]);
@@ -20,11 +22,15 @@ void print_string(char* ptr, int L){ //works
 	nl;
 }
 
-void create_link(char letter, int free_indexes[4]){
-	
+void create_link( char* w, char letter, int free_indexes[4] ){
+	if( free_indexes[0] == free_indexes[1] ){
+		w[free_indexes[0]] = letter;
+	} else {
+		
+	}
 }
 
-void clean_string(char* w, int l){
+void clean_string(char* w, int l){ //finished
 	for(int i=0; i<=l; i++){
 		w[i] = '*';
 	}
@@ -32,17 +38,14 @@ void clean_string(char* w, int l){
 
 
 void nahodne_prepletene_slovo(char* w, int l, int n){
-	int free[4] = {0,0,n,n};
+	int free[4] = {0,0,0+2,l-1};
 	//first link
 	w[0] = random_letter(n);
 	
-	//while(w[l]<65){
-		//add link
+	//while(w[l]=='*'){
+		//add link create_link(w, random_letter(n), free)
 	//}
 }
-
-
-
 
 int main(){
 	char string1[10]={30,31,32,33,34,35,36,37,38,39};
