@@ -15,7 +15,7 @@
 //Remake README to allow my ascii schemes
 
 char random_letter(int n){
-	return rand()%n+65
+	return (char)(rand()%n+65)
 }
 
 void print_string(char* ptr, int L){ //works
@@ -24,6 +24,14 @@ void print_string(char* ptr, int L){ //works
 		printf("%c", ptr[i]);
 	}
 	nl;
+}
+
+void create_link(char letter, int free_indexes[4]){
+	
+}
+
+void clean_string(char* w){
+	
 }
 
 
