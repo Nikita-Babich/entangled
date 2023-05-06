@@ -51,6 +51,7 @@ void clean_string(char* w, int l){
 
 void nahodne_prepletene_slovo(char* w, int l, int n){
 	clean_string(w, l);
+	
 	int free[4] = {0,0,0+2,l-1};
 	int rightmost = 0;
 	int rightsecond = 0;
@@ -68,6 +69,7 @@ void nahodne_prepletene_slovo(char* w, int l, int n){
 	nl;
 	printf("Result:");
 	print_string( w, l );
+	printf("--------------------------------------------------------------");
 	nl;
 }
 
@@ -75,9 +77,9 @@ int main(){
 	srand(time(NULL));
 	
 	for(int i = 0; i<50; i++){
-		printf("Test %d ------------------", i);
-		int length = rand()%30+5;
+		int length = rand()%30+3; //Minimum size for a link is currently 3.
 		int n = rand()%26+1;
+		printf("Test %d; \t Length %d; \t Alphabet size %d", i,length, n);
 		char* string1 = (char*) malloc(sizeof(char)*(length));
 		nahodne_prepletene_slovo(string1, length, n);
 		free(string1);
