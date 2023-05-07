@@ -5,7 +5,7 @@ The function has to fill the array with a random entangled word made of the firs
 # Entanglement definition
 The string is entangled if it is impossible to split it into 2 substrings so they contain non-intersecting sets of letters.
 
-#Algorithm
+# Algorithm
 ```mermaid
 flowchart TD
 
@@ -21,6 +21,8 @@ id5 -->|then| id6(Fill the empty spaces and return)
 id5 -->|else| id3
 ```
 
+# Explanation
+Note: the algorithm make the strings with small links on the right side more probable, than with small links on the left side. But all variations are possible.
 ```
 ##Example: 
 1) ABCDA
@@ -125,6 +127,6 @@ If we allow generation without overshoot we might get CC...
 in which case we have to generate specifically C again. CC*C*
 It's unnecessary branching.
 
-C*BC****B* [5,8,10,10] -> we don't need a link between 2 and 5-8. 
+In case C*BC****B* [5,8,10,10] we don't need a link between 2 and 5-8. 
 It could have generated instead of BB.
 ```
