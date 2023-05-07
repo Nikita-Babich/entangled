@@ -9,12 +9,16 @@ The string is entangled if it is impossible to split it into 2 substrings so the
 ```mermaid
 flowchart TD
 
-Start --> id1(Generate first leftmost link)
-id1 --> id2(If end is not reached)
-id2 -->|then| id3(Add link)
-id3 --> id2
-id2 -->|else| id4(Fill the empty spaces)
+Start --> id1(IF length>=3)
+id1 -->|then| id2(Start cycle)
+id1 -->|else| id3(Generate trivial case and return)
 
+id2 --> id3(Generate one link according to free spaces)
+id3 --> id4(Modify the array describing the new free spaces)
+id4 --> id5(IF the last spot is filled)
+
+id5 -->|then| id6(Fill the empty spaces and return)
+id5 -->|else| id3
 ```
 
 ```
