@@ -11,7 +11,7 @@ flowchart TD
 
 Start --> id1(IF length>=3)
 id1 -->|then| id2(Start cycle)
-id1 -->|else| id3(Generate trivial case and return)
+id1 -->|else| id7(Generate trivial case and return)
 
 id2 --> id3(Generate one link according to free spaces)
 id3 --> id4(Modify the array describing the new free spaces)
