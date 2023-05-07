@@ -6,6 +6,8 @@ The function has to fill the array with a random entangled word made of the firs
 The string is entangled if it is impossible to split it into 2 substrings so they contain non-intersecting sets of letters.
 
 # Algorithm
+Free spaces - indices of where link can grab to.
+Empty spaces - all positions where a letter was not inserted.
 ```mermaid
 flowchart TD
 
