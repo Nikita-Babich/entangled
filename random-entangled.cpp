@@ -1,10 +1,13 @@
 #include <stdio.h>
 //#include <math.h>
-#include <string.h>
+//#include <string.h>
 #include <stdlib.h>
 #include <time.h>
 
 #define nl printf("\n")
+
+//for printing intermediate steps
+//#define DEBUG_MODE
 
 char random_letter( int n ){
 	return (char)(rand() % n + 65);
@@ -29,9 +32,9 @@ void create_link( char* w, int length, char letter, int* free_indexes, int* righ
 	w[right] = letter;
 	*rightsecond = *rightmost;
 	*rightmost = right;
-	
-	print_string(w, length);
-	
+	#ifdef DEBUG_MODE
+		print_string(w, length);
+	#endif
 	//redefine free indexes
 	free_indexes[0] = *rightsecond+1;
 	free_indexes[1] = *rightmost-1;
@@ -72,11 +75,7 @@ void nahodne_prepletene_slovo(char* w, int l, int n){
 		for(int i=0; i<l; i++){ w[i] = filler; }
 	}
 	
-	nl;
-	printf("Result:");
-	print_string( w, l );
-	printf("--------------------------------------------------------------");
-	nl;
+	
 }
 
 int main(){
@@ -91,6 +90,9 @@ int main(){
 		
 		nahodne_prepletene_slovo(string1, length, n);
 		
+		printf("\nResult:  ");
+		print_string( string1, length );
+		nl; nl;
 		free(string1);
 	}
 
